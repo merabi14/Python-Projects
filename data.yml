@@ -1,0 +1,6 @@
+apache_vhosts:
+  - port: 80
+    servername: www.domain.tld
+    documentroot: /www/domain
+    serveradmin: www-admin@foo.example.com
+    directory: /usr/local/httpd/htdocs

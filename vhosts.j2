@@ -1,0 +1,13 @@
+{% for vhost in apache_vhosts %}
+<VirtualHost *:{% if vhost.port %}{{ vhost.port }}{% endif %}>
+    ServerName{% if vhost.servername %} {{ vhost.servername }}{% endif %}
+    DocumentRoot {{ vhost.documentroot }}
+    ServerAdmin {{ vhost.serveradmin }}
+    <Directory "{{ vhost.directory }}">
+        AllowOverride All
+        Options Indexes FollowSymLinks
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>
+{% endfor %}
